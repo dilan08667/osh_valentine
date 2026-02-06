@@ -183,16 +183,16 @@
 
     <section class="result" id="result">
       <h2>YAY! 🎉</h2>
-<video 
-  class="fireworks"
-  autoplay
-  loop
-  playsinline
-  controls
->
-  <source src="./Storyboard1.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+      <video 
+        class="fireworks"
+        loop
+        playsinline
+        controls
+        id="fireworksVideo"
+      >
+        <source src="./Storyboard1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
     </section>
   </main>
 
@@ -301,11 +301,11 @@
       result.style.display = "block";
       resizeConfettiCanvas();
       fullScreenConfetti();
+
+      // PLAY VIDEO AFTER CLICK
+      const video = document.getElementById("fireworksVideo");
+      video.play().catch(err => console.log("Video play failed:", err));
     });
   </script>
 </body>
 </html>
-
-
-
-
