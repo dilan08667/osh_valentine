@@ -26,8 +26,13 @@
       place-items: center;
       background: radial-gradient(circle at top, var(--bg2), var(--bg1));
       font-family: system-ui, sans-serif;
-      overflow: hidden;
+      overflow: hidden; /* locked initially */
       padding: 16px;
+    }
+
+    /* Makes body scrollable after Yes click */
+    .scrollable {
+      overflow: auto;
     }
 
     /* FULL-SCREEN CONFETTI CANVAS */
@@ -178,7 +183,6 @@
       <button id="noBtn">No</button>
     </section>
 
-    <!-- HINT -->
     <div class="hint" id="hint">“No” seems a bit shy 😈</div>
 
     <section class="result" id="result">
@@ -299,6 +303,10 @@
       zone.style.display = "none";
       hint.style.display = "none";     // HIDE THE HINT
       result.style.display = "block";
+
+      // Allow scrolling
+      document.body.classList.add("scrollable");
+
       resizeConfettiCanvas();
       fullScreenConfetti();
 
